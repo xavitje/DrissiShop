@@ -107,6 +107,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size: 0.9rem;
       color: #777;
     }
+    .payhip-wrapper {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .payhip-embed-page {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    min-height: 300px;
+  }
+
+  .payhip-embed-page iframe {
+    width: 100%;
+    height: 350px !important; /* Zorgt voor compacte weergave */
+    border: none;
+  }
   </style>
 </head>
 <body>
@@ -119,10 +142,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1>Drissi Shop</h1>
     <p>Van alles en nog wat te koop</p>
   </header>
-  <div class="payhip-embed-page" data-key="mPxZe">...</div><script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68984"></script>
-  <div class="payhip-embed-page" data-key="gnhwr">...</div><script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68984"></script>
+  
+  <div class="payhip-wrapper">
+  <div class="payhip-embed-page" data-key="mPxZe"></div>
+  <div class="payhip-embed-page" data-key="gnhwr"></div>
+</div>
 
-    
+  <script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68984"></script>   
 
   <footer>
     &copy; 2025 Rafi El Idrissi – Bekijk meer op <a href="https://ko-fi.com/rafielidrissi" target="_blank">Ko-fi</a>
