@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,10 +36,25 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       overflow: hidden;
-      transition: transform 0.2s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
     }
+    .product:nth-child(1) { animation-delay: 0.1s; }
+    .product:nth-child(2) { animation-delay: 0.3s; }
     .product:hover {
       transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     .product img {
       width: 100%;
@@ -76,23 +91,23 @@
 </head>
 <body>
   <header>
-    <img src="drissi-shop-high-resolution-logo-transparent.png" alt="Drissi Shop Logo">
+    <img src="drissi-shop-high-resolution-logo-transparent.png">
     <h1>Drissi Shop</h1>
     <p>Van alles en nog wat te koop</p>
   </header>
 
   <div class="container">
     <div class="product">
-      <!--<img src="https://cdn.ko-fi.com/cdn/kofi/itemimg_9abe8fa561_c8b647f7-3327-48d0-8709-9ef685c0c4d9.png" alt="Boek: Pizza, Pannenkoeken en Probleem" />-->
+      <img src="https://cdn.ko-fi.com/cdn/kofi/itemimg_9abe8fa561_c8b647f7-3327-48d0-8709-9ef685c0c4d9.png">
       <div class="product-content">
-        <h2>📖Boek: Groetjes uit Gekland!</h2>
+        <h2>📖 Boek: Groetjes uit Gekland!</h2>
         <p>Een grappig en spannend boek voor kinderen. Bestel direct!</p>
         <a class="btn" href="https://ko-fi.com/s/9abe8fa561" target="_blank">Koop Boek</a>
       </div>
     </div>
 
     <div class="product">
-      <!--<img src="https://cdn.ko-fi.com/cdn/kofi/itemimg_1b855c18b7_6cabe50d-71d7-4f45-a935-781a53b9bff2.png" alt="Game: De Avonturen van Mats" />-->
+      <img src="cube.jpg">
       <div class="product-content">
         <h2>🎮 Game: CubeTastic</h2>
         <p>Speel een single player 3rd person game!</p>
