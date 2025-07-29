@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rafi El Idrissi - Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .product {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    .product:hover {
+      transform: scale(1.02);
+    }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .product-content {
+      padding: 1rem;
+    }
+    .product h2 {
+      font-size: 1.2rem;
+      margin: 0 0 0.5rem 0;
+    }
+    .product p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #0077ff;
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Rafi El Idrissi</h1>
+    <p>Boek & Game te koop</p>
+  </header>
+
+  <div class="container">
+    <div class="product">
+      <img src="https://cdn.ko-fi.com/cdn/kofi/itemimg_9abe8fa561_c8b647f7-3327-48d0-8709-9ef685c0c4d9.png" alt="Boek: Pizza, Pannenkoeken en Probleem" />
+      <div class="product-content">
+        <h2>📖 Boek: Pizza, Pannenkoeken en Probleem</h2>
+        <p>Een grappig en spannend boek voor kinderen. Bestel direct!</p>
+        <a class="btn" href="https://ko-fi.com/s/9abe8fa561" target="_blank">Koop Boek</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.ko-fi.com/cdn/kofi/itemimg_1b855c18b7_6cabe50d-71d7-4f45-a935-781a53b9bff2.png" alt="Game: De Avonturen van Mats" />
+      <div class="product-content">
+        <h2>🎮 Game: De Avonturen van Mats</h2>
+        <p>Speel een unieke game gebaseerd op het boek, leuk voor jong en oud!</p>
+        <a class="btn" href="https://ko-fi.com/s/1b855c18b7" target="_blank">Koop Game</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Rafi El Idrissi – Bekijk meer op <a href="https://ko-fi.com/rafielidrissi" target="_blank">Ko-fi</a>
+  </footer>
+</body>
+</html>
