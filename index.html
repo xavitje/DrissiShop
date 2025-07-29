@@ -2,62 +2,140 @@
 <html lang="nl">
 <head>
   <link rel="canonical" href="https://drissishop.pages.dev/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <meta name="robots" content="index, follow" />
+  <script src="https://gumroad.com/js/gumroad.js"></script>
+  <meta name="robots" content="index, follow">
   <meta name="description" content="Op Drissi Shop vind je originele producten, creatieve ideeën en handige digitale tools." />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LLF1LVP03W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  <!-- Open Graph / Social Preview -->
-  <meta property="og:title" content="Drissi Shop" />
-  <meta property="og:description" content="Van alles en nog wat te koop!" />
-  <meta property="og:image" content="https://drissishop.pages.dev/drissi-shop-preview.png" />
-  <meta property="og:url" content="https://drissishop.pages.dev/" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Drissi Shop" />
-  <meta name="twitter:description" content="Van alles en nog wat te koop!" />
-  <meta name="twitter:image" content="https://drissishop.pages.dev/drissi-shop-preview.png" />
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Drissi Shop",
-    "url": "https://drissishop.pages.dev/"
-  }
-  </script>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LLF1LVP03W"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LLF1LVP03W');
-  </script>
-
+  gtag('config', 'G-LLF1LVP03W');
+</script>
+  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
   <!-- Google Tag Manager -->
-  <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-MBJZTFQV');
-  </script>
-
-  <!-- Fonts + Styles -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MBJZTFQV');</script>
+<!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Drissi Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+  
 
-  <!-- Gumroad + Payhip -->
-  <script src="https://gumroad.com/js/gumroad.js"></script>
-  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header img {
+      width: 180px;
+      margin-bottom: 1rem;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .product {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+    }
+    .product:nth-child(1) { animation-delay: 0.1s; }
+    .product:nth-child(2) { animation-delay: 0.3s; }
+    .product:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .product-content {
+      padding: 1rem;
+    }
+    .product h2 {
+      font-size: 1.2rem;
+      margin: 0 0 0.5rem 0;
+    }
+    .product p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #0077ff;
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    .payhip-wrapper {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .payhip-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    padding: 1rem;
+  }
+
+  .payhip-embed-page {
+    width: 100%;
+  }
+  </style>
 </head>
-
 <body>
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBJZTFQV"
