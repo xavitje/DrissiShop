@@ -112,8 +112,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin: 2rem auto;
     padding: 0 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
+    align-items: start;
   }
 
   .payhip-card {
@@ -121,20 +122,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    padding: 1rem;
   }
 
   .payhip-embed-page {
-    flex-grow: 1;
-    min-height: 480px;
-  }
-
-  .payhip-embed-page iframe {
     width: 100%;
-    height: 100%;
-    border: none;
   }
   </style>
 </head>
