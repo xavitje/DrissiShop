@@ -112,22 +112,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin: 2rem auto;
     padding: 0 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
   }
 
-  .payhip-embed-page {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 1rem;
+  .payhip-card {
     background: white;
+    border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    min-height: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .payhip-embed-page {
+    flex-grow: 1;
+    min-height: 480px;
   }
 
   .payhip-embed-page iframe {
     width: 100%;
-    height: 350px !important; /* Zorgt voor compacte weergave */
+    height: 100%;
     border: none;
   }
   </style>
@@ -144,11 +150,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </header>
   
   <div class="payhip-wrapper">
-  <div class="payhip-embed-page" data-key="mPxZe"></div>
-  <div class="payhip-embed-page" data-key="gnhwr"></div>
+  <div class="payhip-card">
+    <div class="payhip-embed-page" data-key="mPxZe"></div>
+  </div>
+  <div class="payhip-card">
+    <div class="payhip-embed-page" data-key="gnhwr"></div>
+  </div>
 </div>
 
-  <script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68984"></script>   
+<script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68984"></script>
 
   <footer>
     &copy; 2025 Rafi El Idrissi – Bekijk meer op <a href="https://ko-fi.com/rafielidrissi" target="_blank">Ko-fi</a>
