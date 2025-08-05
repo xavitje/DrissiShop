@@ -99,7 +99,11 @@ header img {
   gap: 2rem;
   align-items: start;
 }
-
+@media (max-width: 768px) {
+  .payhip-embed-page iframe {
+    background: transparent !important;
+    height: 500px !important; /* Pas aan indien nodig */
+  }
 .payhip-card {
   background: white;
   border-radius: 10px;
