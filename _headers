@@ -1,5 +1,5 @@
 /index.html
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, max-age=60
 
 /logo.png
   Cache-Control: public, max-age=86400
