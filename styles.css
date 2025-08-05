@@ -118,6 +118,10 @@ footer {
   padding: 2rem 1rem;
   font-size: 0.9rem;
   color: #777;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; /* Space between elements */
 }
 
 footer img {
@@ -127,14 +131,15 @@ footer img {
 
 /* TrustPilot Hover Effects */
 .trustpilot-widget {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  display: inline-block;
-  margin-top: 1rem;
+  margin: 0; /* Remove default margins */
+  padding: 0;
+  line-height: 1; /* Prevent extra space */
 }
 
+/* Optional: Add subtle hover effect */
 .trustpilot-widget:hover {
-  opacity: 0.9;
   transform: scale(1.02);
+  opacity: 0.9;
 }
 
 .trustpilot-widget a {
