@@ -121,7 +121,6 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem; /* Space between elements */
 }
 
 footer img {
@@ -129,11 +128,16 @@ footer img {
   margin-bottom: 0rem;
 }
 
-/* TrustPilot Hover Effects */
+/* TrustPilot Widget Styles */
 .trustpilot-widget {
-  margin: 0; /* Remove default margins */
-  padding: 0;
-  line-height: 1; /* Prevent extra space */
+  margin-top: 1rem; /* Adds space between text and widget */
+  display: block; /* Ensures it appears on its own line */
+  line-height: 1;
+}
+
+/* Remove any default margins from TrustPilot's iframe */
+.trustpilot-widget iframe {
+  margin: 0 !important;
 }
 
 /* Optional: Add subtle hover effect */
