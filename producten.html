@@ -7,35 +7,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://js.stripe.com/v3/"></script>
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
   <style>
-    .stripe-form {
-      margin-top: 1.5rem;
-    }
-    .stripe-button {
-      background: var(--primary-color);
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-      width: 100%;
-    }
-    .stripe-button:hover {
-      background: #2a75e6;
-      transform: translateY(-2px);
-    }
-    #card-element {
-      border: 1px solid #ddd;
-      padding: 10px;
-      border-radius: 4px;
-      margin: 10px 0;
-    }
-    .stripe-form {
-      max-width: 400px;
+    .stripe-buy-button {
       margin: 20px auto;
+      max-width: 300px;
     }
   </style>
 </head>
@@ -64,24 +40,35 @@
   <main class="products-main">
     <div class="container">
       <div class="product-grid">
+        <!-- Cubetastic Game -->
+        <div class="product-card">
+          <div class="product-image" style="background-color: #fff0f3;">
+            <i class="fas fa-gamepad product-icon" style="color: #ff006e;"></i>
+          </div>
+          <h2>Cubetastic Game</h2>
+          <p>Een meeslepende game vol avontuur en uitdagingen voor alle leeftijden.</p>
+          <stripe-buy-button
+            buy-button-id="buy_btn_1RvzJABz9620E9lk9rpvVtZW"
+            publishable-key="pk_live_51RvxKEBz9620E9lkg3p5l3jFAG2uHJLFWo7Q5XTITqnudqbE8vcFhx8h1xzj6l7OJQa45KYZ96rmq6X4GfhXNAey00H5JHoBEl">
+          </stripe-buy-button>
+        </div>
+
+        <!-- Groetjes uit Gekland! -->
         <div class="product-card">
           <div class="product-image" style="background-color: #f0f7ff;">
             <i class="fas fa-book-open product-icon" style="color: #3a86ff;"></i>
           </div>
-          <h2>Grappig Kinderboek</h2>
-          <p>€14,99</p>
-          
-          <div class="stripe-form" id="book-form">
-            <div id="card-element-book"></div>
-            <button id="book-button" class="stripe-button">
-              <i class="fas fa-lock"></i> Direct betalen
-            </button>
-            <div id="card-errors-book" role="alert" style="color: #ff5252;"></div>
-          </div>
+          <h2>Groetjes uit Gekland!</h2>
+          <p>Het perfecte notitieboek voor al je creatieve ideeën en projecten.</p>
+          <stripe-buy-button
+            buy-button-id="buy_btn_1RvxkjBz9620E9lkrHfQWU78"
+            publishable-key="pk_live_51RvxKEBz9620E9lkg3p5l3jFAG2uHJLFWo7Q5XTITqnudqbE8vcFhx8h1xzj6l7OJQa45KYZ96rmq6X4GfhXNAey00H5JHoBEl">
+          </stripe-buy-button>
         </div>
       </div>
     </div>
   </main>
+
   <footer>
     <div class="footer-content">
       <p>&copy; 2025 Rafi El Idrissi. Alle rechten voorbehouden.</p>
@@ -91,46 +78,6 @@
     </div>
   </footer>
 
-   <script>
-    const stripe = Stripe('pk_live_51RvxKEBz9620E9lk...');
-    
-    // 1. Setup Stripe Elements voor boek
-    const elementsBook = stripe.elements();
-    const cardBook = elementsBook.create('card');
-    cardBook.mount('#card-element-book');
-
-    // 2. Handle betaling
-    document.getElementById('book-button').addEventListener('click', async (e) => {
-      e.preventDefault();
-      
-      const {error, paymentMethod} = await stripe.createPaymentMethod({
-        type: 'card',
-        card: cardBook,
-      });
-
-      if (error) {
-        document.getElementById('card-errors-book').textContent = error.message;
-      } else {
-        // 3. Verstuur naar je Cloudflare Function
-        const response = await fetch('/process-payment', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            payment_method_id: paymentMethod.id,
-            amount: 1499, // €14,99 in cents
-            currency: 'eur'
-          })
-        });
-
-        const result = await response.json();
-        
-        if (result.success) {
-          window.location.href = '/bedankt.html';
-        } else {
-          alert('Betaling mislukt: ' + result.error);
-        }
-      }
-    });
-  </script>
+  <script src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 </body>
 </html>
