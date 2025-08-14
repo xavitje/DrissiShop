@@ -54,39 +54,32 @@
   <main class="products-main">
     <div class="container">
       <div class="product-grid">
+        <!-- Product 1 -->
         <div class="product-card">
           <div class="product-image" style="background-color: #f0f7ff;">
             <i class="fas fa-book-open product-icon" style="color: #3a86ff;"></i>
           </div>
           <h2>Grappig Kinderboek</h2>
           <p>Het perfecte notitieboek voor al je creatieve ideeën en projecten.</p>
-          <div class="stripe-form">
-            <form id="book-form">
-              <button class="stripe-button" id="book-button">
-                <i class="fas fa-shopping-cart"></i> Kopen - €14,99
-              </button>
-            </form>
-          </div>
+          <button class="stripe-button" id="book-button">
+            <i class="fas fa-shopping-cart"></i> Kopen - €14,99
+          </button>
         </div>
 
+        <!-- Product 2 -->
         <div class="product-card">
           <div class="product-image" style="background-color: #fff0f3;">
             <i class="fas fa-gamepad product-icon" style="color: #ff006e;"></i>
           </div>
           <h2>Fantastische Game</h2>
           <p>Een meeslepende game vol avontuur en uitdagingen voor alle leeftijden.</p>
-          <div class="stripe-form">
-            <form id="game-form">
-              <button class="stripe-button" id="game-button">
-                <i class="fas fa-shopping-cart"></i> Kopen - €24,99
-              </button>
-            </form>
-          </div>
+          <button class="stripe-button" id="game-button">
+            <i class="fas fa-shopping-cart"></i> Kopen - €24,99
+          </button>
         </div>
       </div>
     </div>
   </main>
-
   <footer>
     <div class="footer-content">
       <p>&copy; 2025 Rafi El Idrissi. Alle rechten voorbehouden.</p>
@@ -99,34 +92,37 @@
    <script>
     const stripe = Stripe('pk_live_51RvxKEBz9620E9lkg3p5l3jFAG2uHJLFWo7Q5XTITqnudqbE8vcFhx8h1xzj6l7OJQa45KYZ96rmq6X4GfhXNAey00H5JHoBEl');
     
-    // Boek aankoop
-    document.getElementById('book-button').addEventListener('click', async (e) => {
-      e.preventDefault();
-      const { error } = await stripe.redirectToCheckout({
-        lineItems: [{ price: '9B6eVceBqaOl7Sx8VCdIA01', quantity: 1 }],
-        mode: 'payment',
-        successUrl: 'https://drissishop.pages.dev/bedankt.html',
-        cancelUrl: 'https://drissishop.pages.dev/producten.html',
-      });
-      
-      if (error) {
-        alert('Er is een fout opgetreden: ' + error.message);
+    async function handlePayment(priceId) {
+      try {
+        // 1. Maak checkout session aan via onze Cloudflare functie
+        const response = await fetch('/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ priceId })
+        });
+        
+        if (!response.ok) throw new Error('Server error');
+        
+        // 2. Krijg session ID terug
+        const { id } = await response.json();
+        
+        // 3. Redirect naar Stripe Checkout
+        const { error } = await stripe.redirectToCheckout({ sessionId: id });
+        
+        if (error) throw error;
+      } catch (err) {
+        alert('Betaling kon niet starten: ' + err.message);
+        console.error(err);
       }
-    });
+    }
 
-    // Game aankoop
-    document.getElementById('game-button').addEventListener('click', async (e) => {
-      e.preventDefault();
-      const { error } = await stripe.redirectToCheckout({
-        lineItems: [{ price: 'aFa4gy3WM6y52ydc7OdIA02', quantity: 1 }],
-        mode: 'payment',
-        successUrl: 'https://drissishop.pages.dev/bedankt.html',
-        cancelUrl: 'https://drissishop.pages.dev/producten.html',
-      });
-      
-      if (error) {
-        alert('Er is een fout opgetreden: ' + error.message);
-      }
+    // Event listeners voor knoppen
+    document.getElementById('book-button').addEventListener('click', () => {
+      handlePayment('price_12345abcde'); // VERVANG MET JE ECHTE PRICE ID
+    });
+    
+    document.getElementById('game-button').addEventListener('click', () => {
+      handlePayment('price_67890fghij'); // VERVANG MET JE ECHTE PRICE ID
     });
   </script>
 </body>
