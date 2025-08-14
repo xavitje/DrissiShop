@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "dependencies": {
     "stripe": "^12.0.0"
+  },
+  "scripts": {
+    "build": "echo 'Build not required for static site'",
+    "install": "npm install stripe"
   }
 }
