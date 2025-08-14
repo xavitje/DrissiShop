@@ -27,6 +27,16 @@
       background: #2a75e6;
       transform: translateY(-2px);
     }
+    #card-element {
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+    .stripe-form {
+      max-width: 400px;
+      margin: 20px auto;
+    }
   </style>
 </head>
 <body>
@@ -54,28 +64,20 @@
   <main class="products-main">
     <div class="container">
       <div class="product-grid">
-        <!-- Product 1 -->
         <div class="product-card">
           <div class="product-image" style="background-color: #f0f7ff;">
             <i class="fas fa-book-open product-icon" style="color: #3a86ff;"></i>
           </div>
           <h2>Grappig Kinderboek</h2>
-          <p>Het perfecte notitieboek voor al je creatieve ideeën en projecten.</p>
-          <button class="stripe-button" id="book-button">
-            <i class="fas fa-shopping-cart"></i> Kopen - €14,99
-          </button>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="product-card">
-          <div class="product-image" style="background-color: #fff0f3;">
-            <i class="fas fa-gamepad product-icon" style="color: #ff006e;"></i>
+          <p>€14,99</p>
+          
+          <div class="stripe-form" id="book-form">
+            <div id="card-element-book"></div>
+            <button id="book-button" class="stripe-button">
+              <i class="fas fa-lock"></i> Direct betalen
+            </button>
+            <div id="card-errors-book" role="alert" style="color: #ff5252;"></div>
           </div>
-          <h2>Fantastische Game</h2>
-          <p>Een meeslepende game vol avontuur en uitdagingen voor alle leeftijden.</p>
-          <button class="stripe-button" id="game-button">
-            <i class="fas fa-shopping-cart"></i> Kopen - €24,99
-          </button>
         </div>
       </div>
     </div>
@@ -90,39 +92,44 @@
   </footer>
 
    <script>
-    const stripe = Stripe('pk_live_51RvxKEBz9620E9lkg3p5l3jFAG2uHJLFWo7Q5XTITqnudqbE8vcFhx8h1xzj6l7OJQa45KYZ96rmq6X4GfhXNAey00H5JHoBEl');
+    const stripe = Stripe('pk_live_51RvxKEBz9620E9lk...');
     
-    async function handlePayment(priceId) {
-      try {
-        // 1. Maak checkout session aan via onze Cloudflare functie
-        const response = await fetch('/create-checkout-session', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ priceId })
-        });
-        
-        if (!response.ok) throw new Error('Server error');
-        
-        // 2. Krijg session ID terug
-        const { id } = await response.json();
-        
-        // 3. Redirect naar Stripe Checkout
-        const { error } = await stripe.redirectToCheckout({ sessionId: id });
-        
-        if (error) throw error;
-      } catch (err) {
-        alert('Betaling kon niet starten: ' + err.message);
-        console.error(err);
-      }
-    }
+    // 1. Setup Stripe Elements voor boek
+    const elementsBook = stripe.elements();
+    const cardBook = elementsBook.create('card');
+    cardBook.mount('#card-element-book');
 
-    // Event listeners voor knoppen
-    document.getElementById('book-button').addEventListener('click', () => {
-      handlePayment('price_1RvxbgBz9620E9lkzqNY8WyJ'); // VERVANG MET JE ECHTE PRICE ID
-    });
-    
-    document.getElementById('game-button').addEventListener('click', () => {
-      handlePayment('price_1RvxcIBz9620E9lkuE5sze6M'); // VERVANG MET JE ECHTE PRICE ID
+    // 2. Handle betaling
+    document.getElementById('book-button').addEventListener('click', async (e) => {
+      e.preventDefault();
+      
+      const {error, paymentMethod} = await stripe.createPaymentMethod({
+        type: 'card',
+        card: cardBook,
+      });
+
+      if (error) {
+        document.getElementById('card-errors-book').textContent = error.message;
+      } else {
+        // 3. Verstuur naar je Cloudflare Function
+        const response = await fetch('/process-payment', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            payment_method_id: paymentMethod.id,
+            amount: 1499, // €14,99 in cents
+            currency: 'eur'
+          })
+        });
+
+        const result = await response.json();
+        
+        if (result.success) {
+          window.location.href = '/bedankt.html';
+        } else {
+          alert('Betaling mislukt: ' + result.error);
+        }
+      }
     });
   </script>
 </body>
