@@ -11,9 +11,19 @@
   <meta property="og:image" content="https://drissishop.pages.dev/drissi-shop-preview.webp" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .header-with-bg {
+      background: 
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center;
+      background-size: cover;
+      position: relative;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <header>
+  <header class="header-with-bg">
     <div class="header-content">
       <img src="drissi-shop-high-resolution-logo-transparent (2).webp" alt="Drissi Shop Logo" class="logo">
       <h1>Drissi Shop</h1>
@@ -33,42 +43,3 @@
       </svg>
     </div>
   </header>
-
-  <section class="intro-section">
-    <div class="container">
-      <div class="intro-content">
-        <h2>Welkom bij Drissi Shop</h2>
-        <p class="intro-text">Ontdek onze collectie van unieke producten, digitale tools en creatieve items die inspireren en het leven makkelijker maken.</p>
-        <div class="features-grid">
-          <div class="feature-card">
-            <i class="fas fa-star feature-icon"></i>
-            <h3>Origineel</h3>
-            <p>Unieke producten die je nergens anders vindt</p>
-          </div>
-          <div class="feature-card">
-            <i class="fas fa-lightbulb feature-icon"></i>
-            <h3>Creatief</h3>
-            <p>Innovatieve oplossingen voor dagelijks gebruik</p>
-          </div>
-          <div class="feature-card">
-            <i class="fas fa-shield-alt feature-icon"></i>
-            <h3>Betrouwbaar</h3>
-            <p>Veilige aankopen en kwaliteitsproducten</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2025 Rafi El Idrissi. Alle rechten voorbehouden.</p>
-      <div class="trustpilot-widget" data-locale="nl-NL" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6890c332ff18176cd89f3169" data-style-height="52px" data-style-width="100%" data-token="8590a766-bf3f-4c7e-acaf-370db1fc2ec7">
-        <a href="https://nl.trustpilot.com/review/drissishop.pages.dev" target="_blank" rel="noopener">Trustpilot</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-</body>
-</html>
