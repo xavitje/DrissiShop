@@ -25,6 +25,7 @@ body {
 }
 
 header {
+  background-color: var(--dark-color);
   color: white;
   text-align: center;
   position: relative;
