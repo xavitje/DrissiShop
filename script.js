@@ -23,3 +23,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+let chatLoaded = false;
+
+document.getElementById('aiChatButton').addEventListener('click', function() {
+  if (!chatLoaded) {
+    const script = document.createElement('script');
+    script.src = 'https://sitespeak.ai/chatbots/be00ef2f-cdeb-431e-a99c-48992301640a.js';
+    script.async = true;
+    script.onload = () => {
+      this.innerHTML = '<i class="fas fa-robot"></i>';
+      chatLoaded = true;
+    };
+    document.head.appendChild(script);
+    
+    // Loading indicator
+    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+  }
+});
