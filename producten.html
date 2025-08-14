@@ -7,10 +7,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .header-with-bg {
+      background: 
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center;
+      background-size: cover;
+    }
+  </style>
   <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </head>
 <body>
-  <header>
+  <header class="header-with-bg">
     <div class="header-content">
       <img src="drissi-shop-high-resolution-logo-transparent (2).webp" alt="Drissi Shop Logo" class="logo">
       <h1>Onze Producten</h1>
