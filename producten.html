@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Producten - Drissi Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+</head>
+<body>
+  <header>
+    <img src="drissi-shop-high-resolution-logo-transparent (2).webp" alt="Drissi Shop Logo">
+    <h1>Onze Producten</h1>
+    <p>Bekijk onze selectie van creatieve en originele producten.</p>
+    <a href="index.html" class="btn">Terug naar home</a>
+  </header>
+
+  <div class="container product-grid">
+    <div class="product-card">
+      <h2>Creatief Notitieboek</h2>
+      <stripe-buy-button
+        buy-button-id="buy_btn_1RvxkjBz9620E9lkrHfQWU78"
+        publishable-key="pk_live_51RvxKEBz9620E9lkg3p5l3jFAG2uHJLFWo7Q5XTITqnudqbE8vcFhx8h1xzj6l7OJQa45KYZ96rmq6X4GfhXNAey00H5JHoBEl">
+      </stripe-buy-button>
+    </div>
+
+    <div class="product-card">
+      <h2>Fantastische Game</h2>
+      <stripe-buy-button
+        buy-button-id="buy_btn_1RvxlmBz9620E9lkiuz72IoD"
+        publishable-key="pk_live_51RvxKEBz9620E9lkg3p5l3jFAG2uHJLFWo7Q5XTITqnudqbE8vcFhx8h1xzj6l7OJQa45KYZ96rmq6X4GfhXNAey00H5JHoBEl">
+      </stripe-buy-button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Rafi El Idrissi
+  </footer>
+</body>
+</html>
