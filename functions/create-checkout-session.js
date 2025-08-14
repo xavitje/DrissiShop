@@ -1,4 +1,4 @@
-const stripe = require('stripe')(STRIPE_SECRET_KEY);
+const stripe = require('stripe')(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);
 
 export async function onRequestPost(context) {
   const { request } = context;
