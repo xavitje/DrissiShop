@@ -4,7 +4,7 @@
   <link rel="canonical" href="https://drissishop.pages.dev/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://payhip.com">
+  <link rel="preconnect" href="https://js.stripe.com">
   <link rel="icon" href="/drissi-shop-high-resolution-logo-transparent (2).webp" type="image/webp" />
   <meta name="robots" content="index, follow">
   <meta name="description" content="Op Drissi Shop vind je originele producte, zoals een leuk kinderboek of een fantastiche game!" />
@@ -15,88 +15,90 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- TrustBox script -->
-<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-<!-- End TrustBox script -->
+  <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LLF1LVP03W"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LLF1LVP03W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LLF1LVP03W');
+  </script>
 
-  gtag('config', 'G-LLF1LVP03W');
-</script>
-  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
-  
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MBJZTFQV');</script>
-<!-- End Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MBJZTFQV');</script>
   
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Drissi Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Store",
-  "name": "Drissi Shop",
-  "url": "https://drissishop.pages.dev/",
-  "logo": "https://drissishop.pages.dev/drissi-shop-high-resolution-logo-transparent.png",
-  "description": "Originele producten, creatieve ideeën en handige digitale tools.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Krugerlaan 6",
-    "addressLocality": "Gouda",
-    "postalCode": "2806EA",
-    "addressCountry": "NL"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+31-6-57066080",
-    "contactType": "customer service"
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Drissi Shop",
+    "url": "https://drissishop.pages.dev/",
+    "logo": "https://drissishop.pages.dev/drissi-shop-high-resolution-logo-transparent.png",
+    "description": "Originele producten, creatieve ideeën en handige digitale tools.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Krugerlaan 6",
+      "addressLocality": "Gouda",
+      "postalCode": "2806EA",
+      "addressCountry": "NL"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+31-6-57066080",
+      "contactType": "customer service"
+    }
   }
-}
-</script>
+  </script>
+
+  <!-- Stripe Buy Buttons -->
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBJZTFQV"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBJZTFQV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <header>
     <img src="drissi-shop-high-resolution-logo-transparent (2).webp" alt="Drissi Shop Logo">
     <h1>Drissi Shop</h1>
     <p>Van alles en nog wat te koop</p>
   </header>
   
-  <div class="payhip-wrapper">
-  <div class="payhip-card">
-    <div class="payhip-embed-page" data-key="mPxZe"></div>
-  </div>
-  <div class="payhip-card">
-    <div class="payhip-embed-page" data-key="gnhwr"></div>
-  </div>
-</div>
+  <div class="stripe-wrapper">
+    <stripe-buy-button
+      buy-button-id="buy_btn_1RvxkjBz9620E9lkrHfQWU78"
+      publishable-key="pk_live_51RvxKEBz9620E9lkg3p5l3jFAG2uHJLFWo7Q5XTITqnudqbE8vcFhx8h1xzj6l7OJQa45KYZ96rmq6X4GfhXNAey00H5JHoBEl">
+    </stripe-buy-button>
 
-<script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68984"></script>
-
-<footer>
-  &copy; 2025 Rafi El Idrissi
-  <!-- TrustBox widget - Single div with the required class -->
-  <div class="trustpilot-widget" 
-       data-locale="nl-NL" 
-       data-template-id="56278e9abfbbba0bdcd568bc" 
-       data-businessunit-id="6890c332ff18176cd89f3169" 
-       data-style-height="52px" 
-       data-style-width="100%">
+    <stripe-buy-button
+      buy-button-id="buy_btn_1RvxlmBz9620E9lkiuz72IoD"
+      publishable-key="pk_live_51RvxKEBz9620E9lkg3p5l3jFAG2uHJLFWo7Q5XTITqnudqbE8vcFhx8h1xzj6l7OJQa45KYZ96rmq6X4GfhXNAey00H5JHoBEl">
+    </stripe-buy-button>
   </div>
-</footer>
+
+  <footer>
+    &copy; 2025 Rafi El Idrissi
+    <!-- TrustBox widget - Single div with the required class -->
+    <div class="trustpilot-widget" 
+         data-locale="nl-NL" 
+         data-template-id="56278e9abfbbba0bdcd568bc" 
+         data-businessunit-id="6890c332ff18176cd89f3169" 
+         data-style-height="52px" 
+         data-style-width="100%">
+    </div>
+  </footer>
 </body>
 </html>
