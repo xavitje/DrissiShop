@@ -31,10 +31,6 @@ header {
   position: relative;
   padding-bottom: 80px;
 }
-.header-with-bg {
-  background: linear-gradient(135deg, #6e8efb 0%, #4a6cf7 100%);
-}
-
 .header-content {
   padding: 3rem 1rem 4rem;
   max-width: 800px;
