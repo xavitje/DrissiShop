@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const description = card.querySelector('p:not(.price)').textContent.toLowerCase();
         
         // Toon/verberg op basis van zoekterm
-        card.style.display = (title.includes(searchTerm) || description.includes(searchTerm)
+        card.style.display = (title.includes(searchTerm) || description.includes(searchTerm))
           ? 'block' 
           : 'none';
       });
