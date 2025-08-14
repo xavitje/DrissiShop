@@ -18,3 +18,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+console.log("Script geladen! Zoekbalk gevonden:", !!document.getElementById('product-search'));
+console.log("Producten gevonden:", document.querySelectorAll('.product-card').length);
