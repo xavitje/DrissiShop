@@ -1,0 +1,17 @@
+# Environment variables
+.env
+.env.local
+
+# Node.js dependencies
+node_modules/
+
+# Stripe sensitive files
+stripe-secret-key.txt
+
+# Cloudflare
+functions/dist/
+.cache/
+
+# Editor mappen
+.idea/
+.vscode/
