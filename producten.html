@@ -98,7 +98,7 @@
     document.getElementById('book-button').addEventListener('click', async (e) => {
       e.preventDefault();
       const { error } = await stripe.redirectToCheckout({
-        lineItems: [{ price: 'price_12345abcde', quantity: 1 }],
+        lineItems: [{ price: '9B6eVceBqaOl7Sx8VCdIA01', quantity: 1 }],
         mode: 'payment',
         successUrl: 'https://drissishop.pages.dev/bedankt.html',
         cancelUrl: 'https://drissishop.pages.dev/producten.html',
@@ -113,7 +113,7 @@
     document.getElementById('game-button').addEventListener('click', async (e) => {
       e.preventDefault();
       const { error } = await stripe.redirectToCheckout({
-        lineItems: [{ price: 'price_67890fghij', quantity: 1 }],
+        lineItems: [{ price: 'aFa4gy3WM6y52ydc7OdIA02', quantity: 1 }],
         mode: 'payment',
         successUrl: 'https://drissishop.pages.dev/bedankt.html',
         cancelUrl: 'https://drissishop.pages.dev/producten.html',
